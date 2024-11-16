@@ -1,0 +1,20 @@
+version: '3'
+services:
+  analyzer:
+    image: fastapi_analyzer
+    build: .
+    ports:
+      - 8000:8000
+    entrypoint: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  celery_beat:
+    image: celery_analyzer
+    build: .
+    network_mode: host
+    entrypoint: ["celery", "-A", "celery_app", "beat", "-l", "info"]
+  
+  celery_worker:
+    image: celery_analyzer
+    build: .
+    network_mode: host
+    entrypoint: ["celery", "-A", "celery_app", "worker", "-l", "info"]

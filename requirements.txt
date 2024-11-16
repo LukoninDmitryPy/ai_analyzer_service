@@ -1,0 +1,9 @@
+fastapi==0.115.5
+uvicorn==0.32.0
+python-multipart==0.0.17
+sqlalchemy==2.0.36
+requests==2.32.3
+psycopg2-binary
+celery==5.4.0
+schedule==1.2.2
+python_dotenv==1.0.1
